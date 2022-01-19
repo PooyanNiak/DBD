@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="container">
       <p className="title">
-        <strong>D</strong>river's <strong>B</strong>ehavioral <strong>D</strong>
+        <strong>D</strong>river's <strong>B</strong>ehavior <strong>D</strong>
         etection
       </p>
       <p>You can upload image or video and then see the result</p>
