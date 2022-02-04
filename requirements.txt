@@ -1,2 +1,5 @@
 similaritymeasures
 mediapipe
+opencv-python
+flask
+flask_cors
