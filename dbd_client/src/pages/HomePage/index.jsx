@@ -9,7 +9,7 @@ function Home() {
         <strong>D</strong>river's <strong>B</strong>ehavior <strong>D</strong>
         etection
       </p>
-      <p>You can upload image or video and then see the result</p>
+      <p>You can upload image or open webcam then see the result</p>
       <div className="uploads">
         <div className="image">
           <Link to="image">
@@ -19,7 +19,7 @@ function Home() {
         <div className="divider" />
         <div className="video">
           <Link to="video">
-            <button>upload video</button>
+            <button>stream video</button>
           </Link>
         </div>
       </div>

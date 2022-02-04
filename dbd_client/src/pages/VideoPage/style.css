@@ -1,0 +1,73 @@
+.webcamContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 540px;
+}
+
+.webcam {
+    margin: 16px 0 32px;
+    border: 4px solid black;
+    border-radius: 6px;
+}
+
+.captureContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.capture {
+    min-width: 45px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+/* ////////////////// overLay  ///////////////////////*/
+.overlay {
+    position: relative;
+    width: 720px;
+    height: 480px;
+
+    --border-style: 3px solid red;
+    --border-space: 20px;
+}
+
+.overlay-element {
+    position: absolute;
+    width: 150px; /* controls the length of the borders */
+    height: 100px;  /* controls the height of the borders */
+}
+
+.overlay .top-left {
+    border-left: var(--border-style);
+    border-top: var(--border-style);
+    top:calc( var(--border-space) + 8px);
+    left: calc( var(--border-space) - 6px);
+}
+
+.overlay .top-right {
+    border-right: var(--border-style);
+    border-top: var(--border-style);
+    top: calc(var(--border-space) + 8px);
+    right: calc( var(--border-space) - 6px);
+}
+
+.overlay .bottom-left {
+    border-left: var(--border-style);
+    border-bottom: var(--border-style);
+    bottom: calc(var(--border-space) - 28px);
+    left: calc( var(--border-space) - 6px);
+}
+
+.overlay .bottom-right {
+    border-right: var(--border-style);
+    border-bottom: var(--border-style);
+    bottom: calc(var(--border-space) - 28px);
+    right: calc( var(--border-space) - 6px);
+}
