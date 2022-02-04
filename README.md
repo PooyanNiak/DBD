@@ -9,3 +9,19 @@ driver behavior based on the input video from the dashcam and alarm the user if 
 driver is not following the traffic rules or if the drivers’ eyes are not on the road.
 
 ![](figures/distracted_driver.jpg)
+
+----------
+
+### How to start client:
+```bash
+cd dbd_client && yarn && yarn start
+```
+Or 
+```bash
+cd dbd_client && npm install && npm start
+```
+
+### How to start server:
+```bash
+pip install -r requirements.txt && cd pose && python3 main.py
+```
