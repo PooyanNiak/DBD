@@ -11,21 +11,9 @@
     border-radius: 6px;
 }
 
-.captureContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.capture {
-    min-width: 45px;
-}
-
-.imageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
+.caption {
+    text-align: center;
+    margin-top: 15px;
 }
 
 /* ////////////////// overLay  ///////////////////////*/

@@ -3,4 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.video-container>* {
+    margin-top: 20px;
+}
+
+.image {
+    max-width: 450px;
 }

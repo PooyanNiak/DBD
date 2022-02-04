@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
-import CaptureIcon from '../../assets/icons/CaptureIcon';
 import './style.css';
 
 const videoConstraints = {
@@ -9,23 +8,48 @@ const videoConstraints = {
   facingMode: 'user',
 };
 
+function urltoFile(url, filename, mimeType) {
+  return fetch(url)
+    .then(function (res) {
+      return res.arrayBuffer();
+    })
+    .then(function (buf) {
+      return new File([buf], filename, { type: mimeType });
+    });
+}
+
 function Video() {
-  const [image, setImage] = useState('');
+  const [responseData, setResponseData] = useState('');
   const webcamRef = React.useRef(null);
 
   const capture = React.useCallback(() => {
+    const formData = new FormData();
     const imageSrc = webcamRef.current.getScreenshot();
-    setImage(imageSrc);
+    urltoFile(imageSrc, 'image.jpg', 'image/jpeg').then((file) => {
+      formData.append('imagefile', file);
+      const options = {
+        method: 'POST',
+        body: formData,
+      };
+      fetch('http://localhost:5000/imageProcess/v1.0/findPose', options)
+        .then((response) => response.json())
+        .then((response) => setResponseData(response.result));
+    });
   }, [webcamRef]);
+
+  useEffect(() => {
+    const intervalId = setInterval(capture, 3000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div>
       <div className="webcamContainer">
-        <div class="overlay">
-          <div class="overlay-element top-left"></div>
-          <div class="overlay-element top-right"></div>
-          <div class="overlay-element bottom-left"></div>
-          <div class="overlay-element bottom-right"></div>
+        <div className="overlay">
+          <div className="overlay-element top-left"></div>
+          <div className="overlay-element top-right"></div>
+          <div className="overlay-element bottom-left"></div>
+          <div className="overlay-element bottom-right"></div>
           <Webcam
             className="webcam"
             audio={false}
@@ -37,16 +61,15 @@ function Video() {
           />
         </div>
       </div>
-      <div className="captureContainer">
-        <button className="capture" onClick={capture}>
-          <CaptureIcon />
-        </button>
-      </div>
-      {image.length ? (
-        <div className="imageContainer">
-          <img src={image} alt="user" />
+      {responseData && (
+        <div className="caption">
+          <span>Current behavior:</span>
+          &nbsp; &nbsp; &nbsp;
+          <span>
+            <strong>{responseData.result}</strong>
+          </span>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
