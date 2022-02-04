@@ -8,4 +8,4 @@ driving every year. Our aim in this project is to develop a system that can dete
 driver behavior based on the input video from the dashcam and alarm the user if the
 driver is not following the traffic rules or if the drivers’ eyes are not on the road.
 
-![](figures\distracted_driver.jpg)
+![](figures/distracted_driver.jpg)
