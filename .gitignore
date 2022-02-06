@@ -23,3 +23,5 @@ dbd_client/npm-debug.log*
 dbd_client/yarn-debug.log*
 dbd_client/yarn-error.log*
 ###################### Client ######################
+
+__pycache__/
